@@ -1,17 +1,16 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-collapse">
+      <ul class="nav navbar-nav">
+          <li routerLinkActive="active"><a routerLink="auth">Authentification</a></li>
+          <li routerLinkActive="active"><a routerLink="appareils">Appareils</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
-      <nav class="navbar navbar-default">
-        <div class="container-fluid">
-          <div class="navbar-collapse">
-            <ul class="nav navbar-nav">
-              <li><a href="#">Authentification</a></li>
-              <li class="active"><a href="#">Appareils</a></li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-      <app-appareil-view></app-appareil-view>
       <router-outlet></router-outlet>
     </div>
   </div>

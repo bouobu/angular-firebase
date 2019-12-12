@@ -9,12 +9,15 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { AppareilComponent } from './appareil/appareil.component';
 import { FormsModule } from '@angular/forms';
 import { AppareilService } from './services/appareil.service';
+import { AuthService } from './services/auth.service';
 import { AuthComponent } from './auth/auth.component';
 import { AppareilViewComponent } from './appareil-view/appareil-view.component';
 import { Routes } from '@angular/router';
+import { SingleAppareilComponentComponent } from './single-appareil-component/single-appareil-component.component';
 
 const appRoutes: Routes = [
   { path: 'appareils', component: AppareilViewComponent },
+  { path: 'appareils/:id', component: SingleAppareilComponentComponent },
   { path: 'auth', component: AuthComponent },
   { path: '', component: AppareilViewComponent }
 ];
@@ -30,7 +33,8 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes)
   ],
   providers: [
-    AppareilService
+    AppareilService,
+    AuthService
   ],
   declarations: [
     AppComponent,
@@ -38,7 +42,8 @@ const appRoutes: Routes = [
     ProductListComponent,
     AppareilComponent,
     AuthComponent,
-    AppareilViewComponent
+    AppareilViewComponent,
+    SingleAppareilComponentComponent,
   ],
   
   bootstrap: [ AppComponent ]
