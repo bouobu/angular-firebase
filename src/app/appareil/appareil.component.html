@@ -4,9 +4,11 @@
 
   <button class="btn btn-sm btn-success"
           *ngIf="appareilStatus === 'éteint'"
+          [disabled]="!AuthService.isAuth"
           (click)="onSwitch()">Allumer</button>
   <button class="btn btn-sm btn-danger"
           *ngIf="appareilStatus === 'allumé'"
+          [disabled]="!AuthService.isAuth"
           (click)="onSwitch()">Eteindre</button>
   <a [routerLink]="[id]">Détail</a>
 </li>

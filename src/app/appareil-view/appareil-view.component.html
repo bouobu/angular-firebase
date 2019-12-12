@@ -9,10 +9,10 @@
                        [index]="i"
                        [id]="appareil.id"></app-appareil>
         <button class="btn btn-success"
-              [disabled]="!isAuth"
+              [disabled]="!AuthService.isAuth"
               (click)="onAllumer()">Tout allumer</button>
        <button class="btn btn-danger"
-              [disabled]="!isAuth"
+              [disabled]="!AuthService.isAuth"
               (click)="onEteindre()">Tout éteindre</button>
       </ul>
     </div>
