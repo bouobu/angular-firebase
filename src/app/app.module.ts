@@ -9,6 +9,15 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { AppareilComponent } from './appareil/appareil.component';
 import { FormsModule } from '@angular/forms';
 import { AppareilService } from './services/appareil.service';
+import { AuthComponent } from './auth/auth.component';
+import { AppareilViewComponent } from './appareil-view/appareil-view.component';
+import { Routes } from '@angular/router';
+
+const appRoutes: Routes = [
+  { path: 'appareils', component: AppareilViewComponent },
+  { path: 'auth', component: AuthComponent },
+  { path: '', component: AppareilViewComponent }
+];
 
 @NgModule({
   imports: [
@@ -17,7 +26,8 @@ import { AppareilService } from './services/appareil.service';
     RouterModule.forRoot([
       { path: '', component: ProductListComponent },
     ]),
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [
     AppareilService
@@ -26,7 +36,9 @@ import { AppareilService } from './services/appareil.service';
     AppComponent,
     TopBarComponent,
     ProductListComponent,
-    AppareilComponent
+    AppareilComponent,
+    AuthComponent,
+    AppareilViewComponent
   ],
   
   bootstrap: [ AppComponent ]
