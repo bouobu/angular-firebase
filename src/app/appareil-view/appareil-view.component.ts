@@ -11,6 +11,7 @@ export class AppareilViewComponent implements OnInit {
 
   appareils: any[];
   isAuth: false;
+  appareilSubscription: Subscription;
   
   
   lastUpdate = new Promise((resolve, reject) => {
@@ -25,7 +26,12 @@ export class AppareilViewComponent implements OnInit {
   constructor(private appareilService: AppareilService, private AuthService:AuthService) { }
 
   ngOnInit() {
-    this.appareils = this.appareilService.appareils;
+    this.appareilSubscription = this.appareilService.appareilsSubject.subscribe(
+      (appareils: any[]) => {
+        this.appareils = appareils;
+      }
+    );
+    this.appareilService.emitAppareilSubject();
   }
 
   onAllumer() {
@@ -38,6 +44,10 @@ export class AppareilViewComponent implements OnInit {
     } else {
       return null;
     }
+  }
+
+  ngOnDestroy() {
+    this.appareilSubscription.unsubscribe();
   }
 
 }
