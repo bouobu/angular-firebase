@@ -4,8 +4,6 @@ import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { TopBarComponent } from './top-bar/top-bar.component';
-import { ProductListComponent } from './product-list/product-list.component';
 import { AppareilComponent } from './appareil/appareil.component';
 import { FormsModule } from '@angular/forms';
 import { AppareilService } from './services/appareil.service';
@@ -25,7 +23,7 @@ const appRoutes: Routes = [
   { path: 'edit', canActivate: [AuthGuard], component: EditAppareilComponentComponent },
   { path: 'not-found', component: FourOhFourComponent },
   { path: '**', redirectTo: 'not-found' },
-  { path: '', component: AppareilViewComponent }
+  { path: '', component: AuthComponent }
 ];
 
 @NgModule({
@@ -33,7 +31,7 @@ const appRoutes: Routes = [
     BrowserModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
-      { path: '', component: ProductListComponent },
+      { path: '', component: AuthComponent },
     ]),
     FormsModule,
     RouterModule.forRoot(appRoutes)
@@ -45,8 +43,6 @@ const appRoutes: Routes = [
   ],
   declarations: [
     AppComponent,
-    TopBarComponent,
-    ProductListComponent,
     AppareilComponent,
     AuthComponent,
     AppareilViewComponent,
