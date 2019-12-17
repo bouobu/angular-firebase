@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AppareilService } from './services/appareil.service';
 import { Observable } from 'rxjs';
 import 'rxjs/add/observable/interval';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-root',

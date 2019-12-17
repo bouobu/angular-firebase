@@ -15,6 +15,10 @@ import { Routes } from '@angular/router';
 import { SingleAppareilComponentComponent } from './single-appareil-component/single-appareil-component.component';
 import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
 import { EditAppareilComponentComponent } from './edit-appareil-component/edit-appareil-component.component';
+import { UserService } from './services/user.service';
+import { UserListComponent } from './user-list/user-list.component';
+import { NewUserComponent } from './new-user/new-user.component';
+import { HttpClientModule } from '@angular/common/http'
 
 const appRoutes: Routes = [
   { path: 'appareils', canActivate: [AuthGuard], component: AppareilViewComponent },
@@ -22,6 +26,8 @@ const appRoutes: Routes = [
   { path: 'auth', component: AuthComponent },
   { path: 'edit', canActivate: [AuthGuard], component: EditAppareilComponentComponent },
   { path: 'not-found', component: FourOhFourComponent },
+  { path: 'users', component: UserListComponent },
+  { path: 'new-user', component: NewUserComponent },
   { path: '**', redirectTo: 'not-found' },
   { path: '', component: AuthComponent }
 ];
@@ -34,12 +40,14 @@ const appRoutes: Routes = [
       { path: '', component: AuthComponent },
     ]),
     FormsModule,
+    HttpClientModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [
     AppareilService,
     AuthService,
-    AuthGuard
+    AuthGuard,
+    UserService
   ],
   declarations: [
     AppComponent,
@@ -49,6 +57,8 @@ const appRoutes: Routes = [
     SingleAppareilComponentComponent,
     FourOhFourComponent,
     EditAppareilComponentComponent,
+    UserListComponent,
+    NewUserComponent,
   ],
   
   bootstrap: [ AppComponent ]
