@@ -1,6 +1,8 @@
 import { Subject } from 'rxjs/Subject';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { of, Observable } from 'rxjs';
+import { delay } from 'rxjs/internal/operators';
 
 @Injectable()
 export class AppareilService {
